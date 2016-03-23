@@ -3,9 +3,9 @@ class ModelsController < ApplicationController
     #search the models
     uri = URI("http://www.webmotors.com.br/carro/modelos")
 
-    # Make request for Webmotors site
     make = Make.where(webmotors_id: params[:webmotors_make_id])[0]
 
+    # Make request for Webmotors site
     response = Net::HTTP.post_form(uri, { marca: params[:webmotors_make_id] })
     models_json = JSON.parse response.body
 
