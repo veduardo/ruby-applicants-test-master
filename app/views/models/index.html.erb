@@ -2,6 +2,7 @@
 <% models = Model.where(make_id: make.id) %>
 
 <a href="/"><< Voltar</a>
+<h3><%= make.name %></h3>
 <ul>
   <% models.each do |model| %>
     <li><%= model.name %></li>
