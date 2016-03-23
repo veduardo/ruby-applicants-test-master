@@ -1,11 +1,9 @@
 class HomeController < ApplicationController
-  def index
-    #search the make
-    uri = URI("http://www.webmotors.com.br/carro/marcas")
+  include FetcherHelper
 
-    # Make request for Webmotors site
-    response = Net::HTTP.post_form(uri, {})
-    json = JSON.parse response.body
+  def index
+    # Fetches the makes
+    json = fetch("marcas")
 
     debugger
 
